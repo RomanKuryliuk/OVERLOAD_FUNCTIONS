@@ -20,5 +20,7 @@ public:
 	Date& set_year(int);
 
 	void show();
+
+	Date& operator+(int);
 };
 

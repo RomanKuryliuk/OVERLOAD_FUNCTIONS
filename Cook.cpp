@@ -68,3 +68,24 @@ void Cook::show()
 {
 	cout << name << ", " << surname << endl;
 }
+
+bool Cook::operator==(Cook& _cook)
+{
+	if (name == _cook.name) {
+		if (surname == _cook.surname) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Cook::operator!=(Cook& _cook)
+{
+	if (name != _cook.name) {
+		return true;
+	}
+	if (surname != _cook.surname) {
+			return true;
+	}
+	return false;
+}

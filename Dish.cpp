@@ -60,7 +60,7 @@ Dish::Dish(char* _name_dish, int _price, int _time, Category& _category, char* _
 	cout << "Конструктор Dish з параметрами " << this << endl;
 }
 
-Dish::Dish(Dish& _dish):
+Dish::Dish(Dish& _dish) :
 	Cook(_dish.get_name(), _dish.get_surname())
 {
 	name_dish = new char[strlen(_dish.name_dish) + 1];
@@ -153,4 +153,14 @@ void Dish::show()
 	}
 
 	Cook::show();
+}
+
+bool Dish::operator>(Dish& _dish)
+{
+	return price > _dish.price;
+}
+
+bool Dish::operator<(Dish& _dish)
+{
+	return  price < _dish.price;
 }

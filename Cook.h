@@ -17,4 +17,7 @@ public:
 	Cook& set_surname(char*);
 
 	void show();
+
+	bool operator==(Cook&);
+	bool operator!=(Cook&);
 };

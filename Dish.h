@@ -29,5 +29,8 @@ public:
 	Dish& set_category(Category&);
 
 	void show();
+
+	bool operator>(Dish&);
+	bool operator<(Dish&);
 };
 

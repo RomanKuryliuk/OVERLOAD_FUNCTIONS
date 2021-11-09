@@ -42,6 +42,51 @@ void Date::show()
 	cout << this->day << "." << this->mounth << "." << this->year;
 }
 
+Date& Date::operator+(int _day)
+{
+	day += _day;
+	int k = 0;
+	while (day > k) {
+
+		switch (mounth) {
+		case 1:
+			k = 31;
+		case 2:
+			if (year % 4 == 0) {
+				k = 29;
+			}
+			else {
+				k = 28;
+			}
+		case 3:
+			k = 31;
+		case 4:
+			k = 30;
+		case 5:
+			k = 31;
+		case 6:
+			k = 30;
+		case 7:
+			k = 31;
+		case 8:
+			k = 31;
+		case 9:
+			k = 30;
+		case 10:
+			k = 31;
+		case 11:
+			k = 30;
+		case 12:
+			k = 31;
+		}
+
+		if (day > k) {
+			day -= k;
+			mounth += 1;
+		}
+	}
+}
+
 int Date::get_day()
 {
 	return this->day;
