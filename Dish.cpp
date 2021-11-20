@@ -153,7 +153,32 @@ Dish& Dish::set_category(int _category)
 
 void Dish::show()
 {
-	cout << name_dish << ", " << price << " грн" ;
+	cout << name_dish << ", " << price << " грн, " << time << "хв, ";
+	switch (category)
+	{
+	case NONE:
+		cout << "NONE" << ", ";
+		break;
+	case COLD_SNACKS:
+		cout << "холоднi закуски" << ", ";
+		break;
+	case FIRST_COURSES:
+		cout << "перша страва" << ", ";
+		break;
+	case SECOND_COURSES:
+		cout << "друга страва" << ", ";
+		break;
+	case DESSERTS:
+		cout << "десерт" << ", ";
+		break;
+	case DRINKS:
+		cout << "напiй" << ", ";
+		break;
+	default:
+		break;
+	}
+
+	Cook::show();
 }
 
 bool Dish::operator>(Dish& _dish)
