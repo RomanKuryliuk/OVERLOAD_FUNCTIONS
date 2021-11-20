@@ -16,7 +16,7 @@ public:
 	Cook& set_name(char*);
 	Cook& set_surname(char*);
 
-	void show();
+	virtual void show();
 
 	bool operator==(Cook&);
 	bool operator!=(Cook&);

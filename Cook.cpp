@@ -66,7 +66,7 @@ Cook& Cook::set_surname(char* _surname)
 
 void Cook::show()
 {
-	cout << name << ", " << surname << endl;
+	cout << name << endl;
 }
 
 bool Cook::operator==(Cook& _cook)
