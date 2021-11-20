@@ -29,7 +29,7 @@ public:
 	Dish& set_category(Category&);
 	Dish& set_category(int);
 
-	void show();
+	virtual void show();
 
 	bool operator>(Dish&);
 	bool operator<(Dish&);
