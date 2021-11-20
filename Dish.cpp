@@ -79,7 +79,7 @@ Dish::~Dish()
 	cout << "Деструктор Dish " << this << endl;
 }
 
-char* Dish::get_name()
+char* Dish::get_name_dish()
 {
 	return name_dish;
 }
@@ -99,7 +99,7 @@ Category& Dish::get_category()
 	return category;
 }
 
-Dish& Dish::set_name(char* _name_dish)
+Dish& Dish::set_name_dish(char* _name_dish)
 {
 	delete[] name_dish;
 	name_dish = new char[strlen(_name_dish) + 1];
@@ -123,6 +123,32 @@ Dish& Dish::set_category(Category& category)
 {
 	category = category;
 	return *this;
+}
+
+Dish& Dish::set_category(int _category)
+{
+	switch (_category) {
+	case 0:
+		category = NONE;
+		break;
+	case 1:
+		category = COLD_SNACKS;
+		break;
+	case 2:
+		category = FIRST_COURSES;
+		break;
+	case 3:
+		category = SECOND_COURSES;
+		break;
+	case 4:
+		category = DESSERTS;
+		break;
+	case 5:
+		category = DRINKS;
+		break;
+	default:
+		break;
+	}
 }
 
 void Dish::show()
@@ -163,4 +189,24 @@ bool Dish::operator>(Dish& _dish)
 bool Dish::operator<(Dish& _dish)
 {
 	return  price < _dish.price;
+}
+
+istream& operator>>(istream& input, Dish _dish)
+{
+	char* _name_dish = nullptr;
+	int _price, _time, _category;
+
+	input >> _name_dish >> _price >> _time >> _category;
+
+	_dish.set_name_dish(_name_dish);
+	_dish.set_price(_price);
+	_dish.set_time(_time);
+	_dish.set_category(_category);
+
+	return input;
+}
+
+ostream& operator<<(ostream& output, Dish _dish)
+{
+	output << _dish.get_name_dish() << ", " << _dish.get_price() << ", " << _dish.get_time() << ", " << _dish.get_category();
 }

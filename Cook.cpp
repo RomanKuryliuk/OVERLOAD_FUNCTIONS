@@ -85,7 +85,21 @@ bool Cook::operator!=(Cook& _cook)
 		return true;
 	}
 	if (surname != _cook.surname) {
-			return true;
+		return true;
 	}
 	return false;
+}
+
+istream& operator>>(istream& input, Cook _cook)
+{
+	char* _name = nullptr, * _surname = nullptr;
+	input >> _name >> _surname;
+	_cook.set_name(_name);
+	_cook.set_surname(_surname);
+	return input;
+}
+
+ostream& operator<<(ostream& output, Cook _cook)
+{
+	return output << _cook.get_name() << ", " << _cook.get_surname();
 }

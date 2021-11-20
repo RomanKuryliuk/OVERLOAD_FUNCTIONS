@@ -31,5 +31,7 @@ public:
 
 	void show();
 	void short_show();
+
+	Dish& operator[](int);
 };
 

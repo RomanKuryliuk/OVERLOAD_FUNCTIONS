@@ -18,19 +18,23 @@ public:
 	Dish(Dish&);
 	~Dish();
 
-	char* get_name();
+	char* get_name_dish();
 	int get_price();
 	int get_time();
 	Category& get_category();
 
-	Dish& set_name(char*);
+	Dish& set_name_dish(char*);
 	Dish& set_price(int);
 	Dish& set_time(int);
 	Dish& set_category(Category&);
+	Dish& set_category(int);
 
 	void show();
 
 	bool operator>(Dish&);
 	bool operator<(Dish&);
+
+	friend istream& operator>>(istream&, Dish);
+	friend ostream& operator<<(ostream&, Dish);
 };
 

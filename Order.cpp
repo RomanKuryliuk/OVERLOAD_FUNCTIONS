@@ -131,3 +131,8 @@ void Order::short_show()
 
 	cout << temp << "хв" << endl;
 }
+
+Dish& Order::operator[](int i)
+{
+	return dishes[i];
+}
