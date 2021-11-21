@@ -1,6 +1,7 @@
 #include <locale.h>
 #include <iostream>
 #include <conio.h>
+#include <fstream>
 
 #include "Dish.h"
 #include "Date.h"

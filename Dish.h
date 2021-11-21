@@ -34,7 +34,7 @@ public:
 	bool operator>(Dish&);
 	bool operator<(Dish&);
 
-	friend istream& operator>>(istream&, Dish);
+	friend istream& operator>>(istream&, Dish&);
 	friend ostream& operator<<(ostream&, Dish);
 };
 

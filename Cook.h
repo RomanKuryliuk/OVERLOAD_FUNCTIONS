@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -25,6 +26,6 @@ public:
 	bool operator==(Cook&);
 	bool operator!=(Cook&);
 
-	friend istream& operator>>(istream&, Cook);
+	friend istream& operator>>(istream&, Cook&);
 	friend ostream& operator<<(ostream&, Cook);
 };

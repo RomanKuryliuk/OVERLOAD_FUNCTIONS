@@ -71,8 +71,8 @@ void Cook::show()
 
 bool Cook::operator==(Cook& _cook)
 {
-	if (name == _cook.name) {
-		if (surname == _cook.surname) {
+	if (!strcmp(name, _cook.name)) {
+		if (!strcmp(surname, _cook.surname)) {
 			return true;
 		}
 	}
@@ -81,18 +81,16 @@ bool Cook::operator==(Cook& _cook)
 
 bool Cook::operator!=(Cook& _cook)
 {
-	if (name != _cook.name) {
-		return true;
+	if (*this==_cook) {
+		return false;
 	}
-	if (surname != _cook.surname) {
-		return true;
-	}
-	return false;
+	return true;
 }
 
-istream& operator>>(istream& input, Cook _cook)
+istream& operator>>(istream& input, Cook& _cook)
 {
-	return input >> _cook.name >> _cook.surname;
+	input >> _cook.name >> _cook.surname;
+	return input;
 }
 
 ostream& operator<<(ostream& output, Cook _cook)

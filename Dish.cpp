@@ -155,7 +155,7 @@ Dish& Dish::set_category(int _category)
 
 void Dish::show()
 {
-	cout << name_dish << ", " << price << " грн";
+	cout << name_dish << ", " << price << " грн" << endl;
 }
 
 bool Dish::operator>(Dish& _dish)
@@ -168,7 +168,7 @@ bool Dish::operator<(Dish& _dish)
 	return  price < _dish.price;
 }
 
-istream& operator>>(istream& input, Dish _dish)
+istream& operator>>(istream& input, Dish& _dish)
 {
 	return input >> _dish.name_dish >> _dish.price >> _dish.time >> _dish.category;
 }

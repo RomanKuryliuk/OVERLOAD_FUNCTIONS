@@ -11,7 +11,7 @@ enum class Category {
 	DRINKS	
 };
 
-std::istream& operator>>(std::istream& input, Category& _category)
+inline std::istream& operator>>(std::istream& input, Category& _category)
 {
     int temp;
 	input >> temp;
@@ -39,7 +39,7 @@ std::istream& operator>>(std::istream& input, Category& _category)
     return input;
 }
 
-std::ostream& operator<<(std::ostream& output, Category& _category)
+inline std::ostream& operator<<(std::ostream& output, Category& _category)
 {
 	switch (_category) {
 	case Category::NONE:
