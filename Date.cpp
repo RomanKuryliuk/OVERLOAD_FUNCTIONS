@@ -44,15 +44,17 @@ void Date::show()
 
 Date& Date::operator+(int _day)
 {
-	day += _day;
-	int k = 0;
-	while (day > k) {
+	Date temp(*this);
 
-		switch (mounth) {
+	temp.day += _day;
+	int k = 0;
+	while (temp.day > k) {
+
+		switch (temp.mounth) {
 		case 1:
 			k = 31;
 		case 2:
-			if (year % 4 == 0) {
+			if (temp.year % 4 == 0) {
 				k = 29;
 			}
 			else {
@@ -80,11 +82,13 @@ Date& Date::operator+(int _day)
 			k = 31;
 		}
 
-		if (day > k) {
-			day -= k;
-			mounth += 1;
+		if (temp.day > k) {
+			temp.day -= k;
+			temp.mounth += 1;
 		}
 	}
+
+	return temp;
 }
 
 int Date::get_day()

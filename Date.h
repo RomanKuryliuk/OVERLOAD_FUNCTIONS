@@ -3,7 +3,7 @@
 class Date
 {
 private:
-	long long int day, mounth, year;
+	int day, mounth, year;
 
 public:
 	Date();

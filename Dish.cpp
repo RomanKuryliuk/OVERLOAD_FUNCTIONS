@@ -13,9 +13,9 @@ Dish::Dish()
 	price = 0;
 	time = 0;
 
-	category = NONE;
+	category = Category::NONE;
 
-	cout << "Конструктор Dish за замовчування " << this << endl;
+	//cout << "Конструктор Dish за замовчування " << this << endl;
 }
 
 Dish::Dish(char* _name_dish, int _price, int _time, Category& _category) :
@@ -29,7 +29,7 @@ Dish::Dish(char* _name_dish, int _price, int _time, Category& _category) :
 
 	category = _category;
 
-	cout << "Конструктор Dish з параметрами " << this << endl;
+	//cout << "Конструктор Dish з параметрами " << this << endl;
 }
 
 Dish::Dish(char* _name_dish, int _price, int _time, Category& _category, Cook& _cook) :
@@ -43,7 +43,7 @@ Dish::Dish(char* _name_dish, int _price, int _time, Category& _category, Cook& _
 
 	category = _category;
 
-	cout << "Конструктор Dish з параметрами " << this << endl;
+	//cout << "Конструктор Dish з параметрами " << this << endl;
 }
 
 Dish::Dish(char* _name_dish, int _price, int _time, Category& _category, char* _name, char* _surname) :
@@ -57,7 +57,7 @@ Dish::Dish(char* _name_dish, int _price, int _time, Category& _category, char* _
 
 	category = _category;
 
-	cout << "Конструктор Dish з параметрами " << this << endl;
+	//cout << "Конструктор Dish з параметрами " << this << endl;
 }
 
 Dish::Dish(Dish& _dish) :
@@ -71,12 +71,12 @@ Dish::Dish(Dish& _dish) :
 
 	category = _dish.category;
 
-	cout << "Конструктор Dish копіювання " << this << endl;
+	//cout << "Конструктор Dish копіювання " << this << endl;
 }
 
 Dish::~Dish()
 {
-	cout << "Деструктор Dish " << this << endl;
+	//cout << "Деструктор Dish " << this << endl;
 }
 
 char* Dish::get_name_dish()
@@ -129,26 +129,28 @@ Dish& Dish::set_category(int _category)
 {
 	switch (_category) {
 	case 0:
-		category = NONE;
+		category = Category::NONE;
 		break;
 	case 1:
-		category = COLD_SNACKS;
+		category = Category::COLD_SNACKS;
 		break;
 	case 2:
-		category = FIRST_COURSES;
+		category = Category::FIRST_COURSES;
 		break;
 	case 3:
-		category = SECOND_COURSES;
+		category = Category::SECOND_COURSES;
 		break;
 	case 4:
-		category = DESSERTS;
+		category = Category::DESSERTS;
 		break;
 	case 5:
-		category = DRINKS;
+		category = Category::DRINKS;
 		break;
 	default:
 		break;
 	}
+
+	return *this;
 }
 
 void Dish::show()
@@ -168,20 +170,11 @@ bool Dish::operator<(Dish& _dish)
 
 istream& operator>>(istream& input, Dish _dish)
 {
-	char* _name_dish = nullptr;
-	int _price, _time, _category;
-
-	input >> _name_dish >> _price >> _time >> _category;
-
-	_dish.set_name_dish(_name_dish);
-	_dish.set_price(_price);
-	_dish.set_time(_time);
-	_dish.set_category(_category);
-
-	return input;
+	return input >> _dish.name_dish >> _dish.price >> _dish.time >> _dish.category;
 }
 
 ostream& operator<<(ostream& output, Dish _dish)
 {
-	output << _dish.get_name_dish() << ", " << _dish.get_price() << ", " << _dish.get_time() << ", " << _dish.get_category();
+	return	output << _dish.get_name_dish() << ", " << _dish.get_price() << ", " << _dish.get_time() << ", " << _dish.get_category();
+
 }

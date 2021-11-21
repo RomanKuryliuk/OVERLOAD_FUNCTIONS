@@ -1,5 +1,9 @@
 #pragma once
 
+#include <iostream>
+
+using namespace std;
+
 class Cook {
 private:
 	char* name, * surname;

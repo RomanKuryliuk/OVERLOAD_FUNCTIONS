@@ -3,6 +3,8 @@
 #include <conio.h>
 
 #include "Dish.h"
+#include "Date.h"
+#include "Order.h"
 
 using namespace std;
 
@@ -10,50 +12,60 @@ int main() {
 
 	setlocale(LC_ALL, "Ukrainian");
 
-	cout << "¬ведiть iм'€ i прiзвище кухар€" << endl;
-	char* name_cook = new char;
-	char* surname_cook = new char;
+	Date date1;
 
-	cin >> name_cook >> surname_cook;
+	date1.show();
+	cout << endl;
 
-	Cook cook(name_cook, surname_cook);
+	date1 = date1 + 5;
 
-	cook.show();
+	date1.show();
+	cout << endl;
 
-	cout << endl << "¬ведiть iм'€ страви, цiну, час приготуванн€, категорiю, iм'€ i прiзвище кухар€" << endl;
-	char* name_dish = new char;
-	int price = 0, time = 0, category = 0;
-	Category temp_category;
+	Cook cook1;
 
-	cin >> name_dish >> price >> time >> category >> name_cook >> surname_cook;
-	switch (category) {
-	case 0:
-		temp_category = NONE;
-		break;
-	case 1:
-		temp_category = COLD_SNACKS;
-		break;
-	case 2:
-		temp_category = FIRST_COURSES;
-		break;
-	case 3:
-		temp_category = SECOND_COURSES;
-		break;
-	case 4:
-		temp_category = DESSERTS;
-		break;
-	case 5:
-		temp_category = DRINKS;
-		break;
-	default:
-		break;
-	}
+	cout << "¬вед≥ть першого кухар€" << endl;
+	cin >> cook1;
+	cout << endl;
 
-	Dish dish(name_dish, price, time, temp_category, name_cook, surname_cook);
-	dish.show();
+	Cook cook2;
+
+	cout << "¬вед≥ть другого кухар€" << endl;
+	cin >> cook2;
+	cout << endl;
 
 
+	cook1.show();
+	cook2.show();
+	cout << endl;
+	cout << (cook1 == cook2) << endl;
 
-	
+	Dish dish1;
+
+	cout << "¬вед≥ть першу страву" << endl;
+	cin >> dish1;
+	cout << endl;
+
+	Dish dish2;
+
+	cout << "¬вед≥ть другу страву" << endl;
+	cin >> dish2;
+	cout << endl;
+
+	dish1.show();
+	dish2.show();
+	cout << endl;
+
+	cout << (dish1 > dish2) << endl;
+	cout << endl;
+
+	Order order1;
+
+	order1.add_dish(dish1);
+	order1.add_dish(dish2);
+
+	order1[0].show();
+	order1[1].show();
+
 	return 0;
 }

@@ -12,7 +12,7 @@ Cook::Cook()
 	surname = new char[10];
 	strcpy_s(surname, sizeof "nosurname", "nosurname");
 
-	cout << "Конструктор Cook за замовчування " << this << endl;
+	//cout << "Конструктор Cook за замовчування " << this << endl;
 }
 
 Cook::Cook(char* _name, char* _surname)
@@ -22,7 +22,7 @@ Cook::Cook(char* _name, char* _surname)
 	surname = new char[strlen(_surname) + 1];
 	strcpy_s(surname, strlen(_surname) + 1, _surname);
 
-	cout << "Конструктор Cook з параметрами " << this << endl;
+	//cout << "Конструктор Cook з параметрами " << this << endl;
 }
 
 Cook::Cook(Cook& _cook)
@@ -32,12 +32,12 @@ Cook::Cook(Cook& _cook)
 	surname = new char[strlen(_cook.surname) + 1];
 	strcpy_s(surname, strlen(_cook.surname) + 1, _cook.surname);
 
-	cout << "Конструктор Cook копіювання " << this << endl;
+	//cout << "Конструктор Cook копіювання " << this << endl;
 }
 
 Cook::~Cook()
 {
-	cout << "Деструктор Cook " << this << endl;
+	//cout << "Деструктор Cook " << this << endl;
 }
 
 char* Cook::get_name()
@@ -92,11 +92,7 @@ bool Cook::operator!=(Cook& _cook)
 
 istream& operator>>(istream& input, Cook _cook)
 {
-	char* _name = nullptr, * _surname = nullptr;
-	input >> _name >> _surname;
-	_cook.set_name(_name);
-	_cook.set_surname(_surname);
-	return input;
+	return input >> _cook.name >> _cook.surname;
 }
 
 ostream& operator<<(ostream& output, Cook _cook)
