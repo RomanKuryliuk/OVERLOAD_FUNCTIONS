@@ -25,13 +25,13 @@ int main() {
 
 	Cook cook1;
 
-	cout << "¬вед≥ть першого кухар€" << endl;
+	cout << "¬ведiть першого кухар€" << endl;
 	cin >> cook1;
 	cout << endl;
 
 	Cook cook2;
 
-	cout << "¬вед≥ть другого кухар€" << endl;
+	cout << "¬ведiть другого кухар€" << endl;
 	cin >> cook2;
 	cout << endl;
 
@@ -43,13 +43,13 @@ int main() {
 
 	Dish dish1;
 
-	cout << "¬вед≥ть першу страву" << endl;
+	cout << "¬ведiть першу страву" << endl;
 	cin >> dish1;
 	cout << endl;
 
 	Dish dish2;
 
-	cout << "¬вед≥ть другу страву" << endl;
+	cout << "¬ведiть другу страву" << endl;
 	cin >> dish2;
 	cout << endl;
 
