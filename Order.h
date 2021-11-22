@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "Date.h"
 #include "Dish.h"
 
@@ -9,23 +11,23 @@ private:
 	char* name;
 	Date date;
 	int number;
-	Dish* dishes;
+	vector<Dish> dishes;
 
 public:
 	Order();
-	Order(char*, Date, int, Dish*);
+	Order(char*, Date, int, vector<Dish>);
 	Order(Order&);
 	~Order();
 
 	char* get_name();
 	Date& get_date();
 	int get_number();
-	Dish* get_dishes();
+	vector<Dish> get_dishes();
 
 	Order& set_name(char*);
 	Order& set_date(Date&);
 	Order& set_number(int);
-	Order& set_dishes(Dish*);
+	Order& set_dishes(vector<Dish>);
 
 	void add_dish(Dish&);
 

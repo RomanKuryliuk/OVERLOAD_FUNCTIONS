@@ -74,6 +74,20 @@ Dish::Dish(Dish& _dish) :
 	//cout << "Конструктор Dish копіювання " << this << endl;
 }
 
+Dish::Dish(const Dish& _dish)
+{
+
+	name_dish = new char[strlen(_dish.name_dish) + 1];
+	strcpy_s(name_dish, strlen(_dish.name_dish) + 1, _dish.name_dish);
+
+	price = _dish.price;
+	time = _dish.time;
+
+	category = _dish.category;
+
+	//cout << "Конструктор Dish копіювання " << this << endl;
+}
+
 Dish::~Dish()
 {
 	//cout << "Деструктор Dish " << this << endl;
@@ -93,6 +107,7 @@ int Dish::get_time()
 {
 	return time;
 }
+
 
 Category& Dish::get_category()
 {

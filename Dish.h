@@ -16,6 +16,7 @@ public:
 	Dish(char*, int, int, Category&, Cook&);
 	Dish(char*, int, int, Category&, char*, char*);
 	Dish(Dish&);
+	Dish(const Dish&);
 	~Dish();
 
 	char* get_name_dish();
@@ -29,7 +30,7 @@ public:
 	Dish& set_category(Category&);
 	Dish& set_category(int);
 
-	virtual void show();
+	void show();
 
 	bool operator>(Dish&);
 	bool operator<(Dish&);

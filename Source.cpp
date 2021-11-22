@@ -65,8 +65,9 @@ int main() {
 	order1.add_dish(dish1);
 	order1.add_dish(dish2);
 
-	order1[0].show();
 	order1[1].show();
+	order1[2].show();
+
 
 	return 0;
 }

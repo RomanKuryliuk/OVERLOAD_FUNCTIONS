@@ -12,10 +12,12 @@ Order::Order()
 
 	this->number = 1;
 
-	this->dishes = new Dish[2];
+	Dish _dish;
+
+	dishes.push_back(_dish);
 }
 
-Order::Order(char* name, Date date, int number, Dish* dishes)
+Order::Order(char* name, Date date, int number, vector<Dish> _dishes)
 {
 	this->name = new char[strlen(name) + 1];
 	strcpy_s(this->name, strlen(name) + 1, name);
@@ -24,15 +26,11 @@ Order::Order(char* name, Date date, int number, Dish* dishes)
 
 	this->number = number;
 
-	delete[] this->dishes;
-	this->dishes = new Dish[number + 1];
-
-	for (int i = 0; i < this->number; i++) {
-		this->dishes[i].set_name(dishes[i].get_name());
-		this->dishes[i].set_price(dishes[i].get_price());
-		this->dishes[i].set_time(dishes[i].get_time());
-		this->dishes[i].set_category(dishes[i].get_category());
+	dishes.clear();
+	for (int i = 0; i < _dishes.size(); i++) {
+		dishes.push_back(_dishes[i]);
 	}
+
 }
 
 Order::Order(Order& order)
@@ -44,15 +42,14 @@ Order::Order(Order& order)
 
 	this->number = order.number;
 
-	this->dishes = new Dish[number + 1];
-	for (int i = 0; i < this->number; i++) {
-		this->dishes[i] = order.dishes[i];
+	for (int i = 0; i < order.dishes.size(); i++) {
+		dishes.push_back(order.dishes[i]);
 	}
 }
 
 Order::~Order()
 {
-	
+
 }
 
 char* Order::get_name()
@@ -70,9 +67,9 @@ int Order::get_number()
 	return this->number;
 }
 
-Dish* Order::get_dishes()
+vector<Dish> Order::get_dishes()
 {
-	return this->dishes;
+	return dishes;
 }
 
 Order& Order::set_name(char* name)
@@ -94,18 +91,16 @@ Order& Order::set_number(int number)
 	return *this;
 }
 
-Order& Order::set_dishes(Dish*)
+Order& Order::set_dishes(vector<Dish> _dishes)
 {
-	for (int i = 0; i < this->number; i++) {
-		this->dishes[i] = dishes[i];
-	}
+	dishes = _dishes;
 	return *this;
 }
 
-void Order::add_dish(Dish& dish)
+void Order::add_dish(Dish& _dish)
 {
-	dishes[this->number] = dish;
-	this->number++;
+	dishes.push_back(_dish);
+	number += 1;
 }
 
 void Order::show()
@@ -114,7 +109,7 @@ void Order::show()
 	this->date.show();
 	cout << ", " << number << ", " << endl << "Страви:" << endl;
 	for (int i = 0; i < this->number; i++) {
-		dishes[i].show();	
+		dishes[i].show();
 	}
 }
 
